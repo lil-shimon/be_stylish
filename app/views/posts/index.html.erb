@@ -10,6 +10,13 @@
               <div class="index-image">
                 <%= attachment_image_tag post, :image, class: "index-image" %>
               </div>
+              <div class="post-title">
+                <div class="post-slide">
+                  <%= link_to post_path(post) do %>
+                    <%= post.title %>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           </div>
         <% end %>

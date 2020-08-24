@@ -61,7 +61,7 @@ nav {
     margin: 0 0 0 auto;
 }
 
-a {
+li a {
     color: #f1f1f2;
 }
 
@@ -98,4 +98,36 @@ h2 {
 
 .index-post {
     margin: 20px 20px;
+    position: relative;
+}
+
+.index-post a {
+    color: #a1a1a1;
+}
+
+.post-title a {
+    color: black;
+    font-size: .97vw;
+    white-space: nowrap;
+    padding: .69vw;
+    line-height: 1;
+    animation-name: slidein;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top: 50%;
+    text-shadow: 3px 3px 3px white;
+    font-weight: bold;
+    background: linear-gradient(transparent 0, white);
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
 }

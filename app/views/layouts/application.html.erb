@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head><title>BeStylish</title><%= csrf_meta_tags %><%= csp_meta_tag %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha256-UzFD2WYH2U1dQpKDjjZK72VtPeWP50NoJjd26rnAdUI=" crossorigin="anonymous" />
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+      <% if flash[:notice] %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+
+      <% if flash[:alert] %>  
+        <p class="alert"><%= alert %></p>
+      <% end %>
+
+    <header>
+      <%= link_to root_path do %>
+        <h1>Be Stylish</h1>
+      <% end %>
+      <nav class="main-nav">
+        <ul>
+          <li><%= link_to "ユーザー一覧", users_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to "マイページ", user_path(current_user) %></li>
+            <li><%= link_to "新規投稿", new_post_path %></li>
+          <% else%>
+            <li><%= link_to "ログイン", new_user_session_path %></li>
+            <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

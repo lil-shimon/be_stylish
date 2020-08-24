@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div class="container">
+      <h2>タイムライン</h2>
+      <div class="columns">
+        <% @posts.each do |post| %>
+          <div class="index-post">
+            <%= link_to post_path(post) do %>
+              <div class="index-image">
+                <%= attachment_image_tag post, :image, class: "index-image" %>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <footer>
+    </footer>
+  </body>
+<html>
+

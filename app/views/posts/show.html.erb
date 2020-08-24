@@ -1,0 +1,10 @@
+<h1>Posts#show</h1>
+<p>Find me in app/views/posts/show.html.erb</p>
+
+
+<%= attachment_image_tag @post, :image, class: "show-image" %>
+
+<%= @post.title %>
+<%= @post.body %>
+
+<%= link_to "edit", edit_post_path %>

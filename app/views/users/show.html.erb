@@ -1,0 +1,27 @@
+<h1>Users#show</h1>
+<p>Find me in app/views/users/show.html.erb</p>
+
+<%= @user.name %>
+<% if @user.id == current_user.id %>
+  <%= @user.email %>
+<% end %>
+<%= attachment_image_tag @user, :profile_image, fallback: "no-image.png" %>
+<% if @user.id == current_user.id %>
+  <%= link_to "edit profile", edit_user_path(@user) %>
+<% end %>
+
+<% @user.posts.each do |post| %>
+  <%= link_to post_path(post) do %>
+    <%= attachment_image_tag post, :image, fallback: "no-image.png" %>
+  <% end %>
+  <%= link_to post_path(post) do %>
+    see this post
+  <% end %>
+  <%= link_to edit_post_path(post) do %>
+    edit this post
+  <% end %>
+  <%= link_to post_path(post), method: :delete, data: {confirm: "are you sure?"} do %>
+    delete this post
+  <% end %>
+
+<% end %>
